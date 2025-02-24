@@ -1,4 +1,6 @@
 import { useState } from "react";
+import store from "../../store";
+import { authActions } from "../../store/authSlice";
 
 export default function Auth() {
     const [email, setEmail] = useState("");
@@ -37,6 +39,9 @@ export default function Auth() {
                         />
                     </div>
                     <button
+                        onClick={() => {
+                            store.dispatch(authActions.logIn())
+                        }}
                         type="submit"
                         className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
                     >
